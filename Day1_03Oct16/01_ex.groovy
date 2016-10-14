@@ -1,3 +1,5 @@
+//testing exercise 1
+//ternary operator
 int currentYear = 2012
 print "When were you born (year)?"
 String str = System.console().readLine();
