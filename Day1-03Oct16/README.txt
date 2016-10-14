@@ -1,0 +1,1 @@
+Exercises handed in out in day 1 class

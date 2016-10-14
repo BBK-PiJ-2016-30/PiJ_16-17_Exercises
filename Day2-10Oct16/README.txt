@@ -1,0 +1,1 @@
+Extra day 1 exercises given out during day 2, ex 12-17
