@@ -1,3 +1,7 @@
+//Prime numbers
+//input: number from user
+//output: whether number is prime or not
+
 String str = ""
 print "Please enter a number: "
 str = System.console().readLine()

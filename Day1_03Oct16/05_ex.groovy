@@ -1,3 +1,8 @@
+//multiplication
+//input: two numbers from user
+//output: mutliplication of these two numbers
+//multiplication perfomred without using * operator
+
 String str = ""
 print "Please enter your first number: "
 str = System.console().readLine()
