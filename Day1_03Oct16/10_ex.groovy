@@ -1,4 +1,8 @@
-//looks for consecutive serious of numbers
+//You said high, I said low...
+//input: reads arbitrarily long sequence of positive numbers
+//sequence ended when user enters -1
+//output: yes if numbers were consecutive (either increasing or decresing), no if not
+
 String str = ""
 
 int lastNum = 0
