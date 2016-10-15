@@ -4,16 +4,13 @@
 //output: tell user the best hand she got
 
 def cardRank = []
-def cardSpa = []
-def cardHea = []
-def cardDia = []
-def cardClu = []
 
 String tmp = ""
 String tmp2 = ""
+String cardSuite = ""
 int count = 0
 int checkNum = 0
-boolean sameSuite = false
+boolean sameSuite = true
 boolean consecutive = false
 
 
@@ -27,56 +24,38 @@ while (count < 5){
 		cardRank << 12
 	}else if(str == "K"){
 		cardRank << 13
-	}
-	checkNum = Integer.parseInt(str)
-	if (checkNum >10){
-		println("Please enter a valid rank.")
 	}else{
-		//cardRank << Integer.parseInt(str)
-		print "Please enter the suit of your card [S]pades, [H]earts, [D]iamonds, [C]lubs: "
-		tmp2 = System.console().readLine()
-		if (tmp2 == "S"){
-			cardSpa << checkNum
-
-		
-		}else if (tmp2 == "H"){
-			cardHea << checkNum
-
-		}else if (tmp2 == "D"){
-			cardDia << checkNum
-
-		
-		}else{
-			cardClu << checkNum
-
-		}
-		count ++	
+		cardRank << Integer.parseInt(str)
 	}
+	print "Please enter the suit of your card [S]pades, [H]earts, [D]iamonds, [C]lubs: "
+	tmp = System.console().readLine()
+	if (count == 0){
+		cardSuite = tmp
+	}else if(cardSuite != tmp) {
+		sameSuite = false
+	}	
+	count ++	
 }
 
-combinedCards = cardSpa + cardHea + cardDia + cardClu
-combinedCards.sort()
-
-//check if all cards are of the same suit
-if (cardSpa.size() == 5 | cardHea.size() == 5 | cardDia.size() == 5 | cardClu.size() == 5){
-	sameSuite = true
-}
-
-//check if card are consecutive
-
-//if same suite and consecutive - straight flush
-//else consecutive straight
-
-//check for poker, combine lists and check for 4 of same rank
-
-//now check for 3 of same rank and a pair
-
-//if same suite flush
-
-//check for 3 of same rank
+print sameSuite
 
 
-//check for pairs if two then two pair, if 1 then 1 pair
 
+cardRank.sort()
+print cardRank
 
-//Nothing - return highest card/
+//check if consecutive
+
+//check for 4
+//take fisrt element in the list check for 4 if not try second
+
+//check for 3 take first element in the list chcek for 3
+//if not take seocd do the same
+//if not take third do the same
+//if find 3, then triple =true, remove 3 of the same check 2 for pair
+
+//then you only get here if there is no 4 or 3
+
+//now checking for pairs
+//count of first item if not 2 pop item and count of 2 etc
+
