@@ -1,4 +1,8 @@
-//program to return highest number in list entered by user
+//Maximising
+//input: reads arbitrarily long sequence of positive numbers
+//sequence ended when user enters -1
+//output: print the highest number
+
 String str = ""
 
 int count = 0
