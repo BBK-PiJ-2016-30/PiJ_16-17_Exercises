@@ -46,102 +46,96 @@ print cardRank
 
 def bestHand(handList, flush){
 
-    boolean consec = true
-    boolean poker = false
-    boolean triple = false
-    boolean fullHouse = false
-    boolean pair = false
-    def tmpList = []
-    int count = 1
+	boolean consec = true
+    	boolean poker = false
+    	boolean triple = false
+    	boolean fullHouse = false
+    	boolean pair = false
+    	def tmpList = []
+    	int count = 1
+
+
+    	//check if consecutive
+    	while(count < handList.size()){
+
+            	if(handList[count] != (handList[count-1] +1)){
+             	   consec = false
+            	}
+            	count ++
+    	}
+
+    	//check for straight flush
+    	if (consec & flush){
+		println "Your best hand is a STRAIGHT FLUSH!"
+        	return
+    	}
+
+    	//check for poker
+    	for(i in 0..1){
+        	if(handList.count(handList[i])==4){
+           	println "Your best hand is a POKER!"
+           	return
+        	}
+    	}
+
+    	//check for full house
+    	for(i in 0..2){
+        	if(handList.count(handList[i])==3){
+			triple = true
+            		tmpList = handList
+            		tmpList.remove(handList[i])
+            
+			if(tmpList.count(tmpList[0])==2){
+                	println "Your best hand is a FULL HOUSE!"
+                	return
+            		}
+
+        	}
+
+    	}
+
+    	//check for flush
+    	if(flush){
+       		println "Your best hand is a FLUSH!"
+        	return
+    	}
+
+    	//check for straight
+    	if(consec){
+		println "Your best hand is a STRAIGHT!"
+		return
+   	}
+
+    	//check for three of a kind
+    	if(triple){
+        	println "Your best hand is THREE OF A KIND!"
+        	return
+    	}
     
-    //loop counters
-   // int i = 0
-    //int j = 0
+    	//check for two pair
+    	for(i in 0..3){
+        	if(handList.count(handList[i])==2){
+            		pair = true
+            		tmpList = handList
+            		tmpList.remove(handList[i])
+            		for(j in 0..1){
+                		if(tmpList.count(tmpList[j])==2){
+                    			println "Your best hand is TWO PAIR!"
+                    			return
+                		}
+            		}
+        	}
 
-    //check if consecutive
-    while(count < handList.size()){
+    	}
 
-            if(handList[count] != (handList[count-1] +1)){
-                consec = false
-            }
-            count ++
-    }
+    	//check for pair
+    	if(pair){
+        	println "Your best hand is a PAIR!"
+        	return
+    	}
 
-    //check for straight flush
-    if (consec & flush){
-        println "Your best hand is a STRAIGHT FLUSH!"
-        return
-    }
-
-    //check for poker
-    for(i in 0..1){
-        if(handList.count(handList[i])==4){
-            println "Your best hand is a POKER!"
-            return
-        }
-    }
-
-    //check for full house
-    //reset i
-    //i = 0
-    for(i in 0..2){
-        if(handList.count(handList[i])==3){
-            triple = true
-            tmpList = handList
-            tmpList.remove(handList[i])
-            if(tmpList.count(tmpList[0])==2){
-                println "Your best hand is a FULL HOUSE!"
-                return
-            }
-
-        }
-
-    }
-
-    //check for flush
-    if(flush){
-        println "Your best hand is a FLUSH!"
-        return
-    }
-
-    //check for straight
-    if(consec){
-        println "Your best hand is a STRAIGHT!"
-        return
-    }
-
-    //check for three of a kind
-    if(triple){
-        println "Your best hand is THREE OF A KIND!"
-        return
-    }
-    
-    //check for two pair
-    //reset i
-   // i = 0
-    for(i in 0..3){
-        if(handList.count(handList[i])==2){
-            pair = true
-            tmpList = handList
-            tmpList.remove(handList[i])
-            for(j in 0..1){
-                if(tmpList.count(tmpList[j])==2){
-                    println "Your best hand is TWO PAIR!"
-                    return
-                }
-            }
-        }
-
-    }
-
-    //check for pair
-    if(pair){
-        println "Your best hand is a PAIR!"
-        return
-    }
-
-    println "You have nothing :-("
-    return
+    	println "You have nothing :-("
+    	return
 }
 
 
