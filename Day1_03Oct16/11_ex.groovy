@@ -5,7 +5,6 @@
 
 def cardRank = []
 
-
 String tmp = ""
 String tmp2 = ""
 String cardSuite = ""
@@ -14,8 +13,6 @@ int checkNum = 0
 int tripRank = 0
 
 boolean flush = true
-
-
 
 while (count < 5){
 
@@ -40,9 +37,7 @@ while (count < 5){
 	count ++	
 }
 
-
 cardRank.sort()
-print cardRank
 
 def bestHand(handList, flush){
 
@@ -53,7 +48,6 @@ def bestHand(handList, flush){
     	boolean pair = false
     	def tmpList = []
     	int count = 1
-
 
     	//check if consecutive
     	while(count < handList.size()){
@@ -138,4 +132,4 @@ def bestHand(handList, flush){
     	return
 }
 
-
+bestHand(cardRank, flush)
