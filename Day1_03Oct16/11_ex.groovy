@@ -1,17 +1,20 @@
 //poker hands
 //input: reads 5 cards from user. Reads the rank and suite of card
 //each card must be valid before moving to the next one
-//output: tell user the best hand she got
+//output: tell user the best hand she has
 
 def cardRank = []
+
 
 String tmp = ""
 String tmp2 = ""
 String cardSuite = ""
 int count = 0
 int checkNum = 0
-boolean sameSuite = true
-boolean consecutive = false
+int tripRank = 0
+
+boolean flush = true
+
 
 
 while (count < 5){
@@ -32,30 +35,113 @@ while (count < 5){
 	if (count == 0){
 		cardSuite = tmp
 	}else if(cardSuite != tmp) {
-		sameSuite = false
+		flush = false
 	}	
 	count ++	
 }
-
-print sameSuite
-
 
 
 cardRank.sort()
 print cardRank
 
-//check if consecutive
+def bestHand(handList, flush){
 
-//check for 4
-//take fisrt element in the list check for 4 if not try second
+    boolean consec = true
+    boolean poker = false
+    boolean triple = false
+    boolean fullHouse = false
+    boolean pair = false
+    def tmpList = []
+    int count = 1
+    
+    //loop counters
+   // int i = 0
+    //int j = 0
 
-//check for 3 take first element in the list chcek for 3
-//if not take seocd do the same
-//if not take third do the same
-//if find 3, then triple =true, remove 3 of the same check 2 for pair
+    //check if consecutive
+    while(count < handList.size()){
 
-//then you only get here if there is no 4 or 3
+            if(handList[count] != (handList[count-1] +1)){
+                consec = false
+            }
+            count ++
+    }
 
-//now checking for pairs
-//count of first item if not 2 pop item and count of 2 etc
+    //check for straight flush
+    if (consec & flush){
+        println "Your best hand is a STRAIGHT FLUSH!"
+        return
+    }
+
+    //check for poker
+    for(i in 0..1){
+        if(handList.count(handList[i])==4){
+            println "Your best hand is a POKER!"
+            return
+        }
+    }
+
+    //check for full house
+    //reset i
+    //i = 0
+    for(i in 0..2){
+        if(handList.count(handList[i])==3){
+            triple = true
+            tmpList = handList
+            tmpList.remove(handList[i])
+            if(tmpList.count(tmpList[0])==2){
+                println "Your best hand is a FULL HOUSE!"
+                return
+            }
+
+        }
+
+    }
+
+    //check for flush
+    if(flush){
+        println "Your best hand is a FLUSH!"
+        return
+    }
+
+    //check for straight
+    if(consec){
+        println "Your best hand is a STRAIGHT!"
+        return
+    }
+
+    //check for three of a kind
+    if(triple){
+        println "Your best hand is THREE OF A KIND!"
+        return
+    }
+    
+    //check for two pair
+    //reset i
+   // i = 0
+    for(i in 0..3){
+        if(handList.count(handList[i])==2){
+            pair = true
+            tmpList = handList
+            tmpList.remove(handList[i])
+            for(j in 0..1){
+                if(tmpList.count(tmpList[j])==2){
+                    println "Your best hand is TWO PAIR!"
+                    return
+                }
+            }
+        }
+
+    }
+
+    //check for pair
+    if(pair){
+        println "Your best hand is a PAIR!"
+        return
+    }
+
+    println "You have nothing :-("
+    return
+}
+
 
