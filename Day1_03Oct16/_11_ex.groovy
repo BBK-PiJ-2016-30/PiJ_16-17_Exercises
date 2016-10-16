@@ -7,9 +7,9 @@ def cardRank = []
 def validRank = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 def validSuite = ["S","H","D","C"]
 
-String tmp = ""
-String tmp2 = ""
+String suiteHold = ""
 String cardSuite = ""
+int rankHold = 0
 int count = 0
 int checkNum = 0
 int tripRank = 0
@@ -21,23 +21,32 @@ while (count < 5){
 	print "Please enter the rank of your card [1,2,3,4,5,6,7,8,9,10,J,Q,K]: "
 	str = System.console().readLine()
 	if (str == "J"){
-		cardRank << 11
+		rankHold = 11
 	} else if(str == "Q"){
-		cardRank << 12
+		rankHold = 12
 	}else if(str == "K"){
-		cardRank << 13
+		rankHold = 13
 	}else{
-		cardRank << Integer.parseInt(str)
+		rankHold = Integer.parseInt(str)
 	}
 	print "Please enter the suit of your card [S]pades, [H]earts, [D]iamonds, [C]lubs: "
-	tmp = System.console().readLine()
-//assert that both rank and suits are valid
-	if (count == 0){
-		cardSuite = tmp
-	}else if(cardSuite != tmp) {
-		flush = false
+	suiteHold = System.console().readLine()
+	//assert that both rank and suits are valid
+	
+	if(!validRank.contains(rankHold) | !validSuite.contains(suiteHold)){
+		println "Please enter valid selection. Both rank and suite must be valid."
+	}else{
+		
+	
+		cardRank << rankHold
+	
+		if (count == 0){
+			cardSuite = suiteHold
+		}else if(cardSuite != suiteHold) {
+			flush = false
+		}	
+		count ++
 	}	
-	count ++	
 }
 
 cardRank.sort()
