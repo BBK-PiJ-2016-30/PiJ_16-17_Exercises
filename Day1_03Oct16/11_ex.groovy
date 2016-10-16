@@ -73,7 +73,7 @@ def bestHand(handList, flush){
     	//check for poker
     	for(i in 0..1){
         	if(handList.count(handList[i])==4){
-           	println "Your best hand is a POKER!"
+           	println "Your best hand is POKER!"
            	return
         	}
     	}
@@ -83,7 +83,7 @@ def bestHand(handList, flush){
         	if(handList.count(handList[i])==3){
 			triple = true
             		tmpList = handList
-            		tmpList.remove(handList[i])
+            		tmpList.removeAll(handList[i])
             
 			if(tmpList.count(tmpList[0])==2){
                 	println "Your best hand is a FULL HOUSE!"
@@ -117,7 +117,7 @@ def bestHand(handList, flush){
         	if(handList.count(handList[i])==2){
             		pair = true
             		tmpList = handList
-            		tmpList.remove(handList[i])
+            		tmpList.removeAll(handList[i])
             		for(j in 0..1){
                 		if(tmpList.count(tmpList[j])==2){
                     			println "Your best hand is TWO PAIR!"
