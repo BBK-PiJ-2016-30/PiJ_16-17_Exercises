@@ -1,53 +1,25 @@
-//Palibdrome creator
+//Palindrome creator
 //input: reads text
 //output: writes text to screen in reverse order
 
 //demo'd during class 17Oct16
 
-class Rectangle{
-	Point upLeft;
-	Point downRight;
-}
-
-class Point{
-	double x;
-	double y;
-}
-
-//1. Get coordinates from user
-println("Coordinates increase going up and right")
-println("Enter the coordinates for point UP LEFT: ")
+print "PLease type in some text: "
 String str = System.console().readLine()
-double left = Double.parseDouble(str)
-str = System.console().readLine()
-double up = Double.parseDouble(str)
 
-println("Enter the coordinates for point DOWN RIGHT: ")
-str = System.console().readLine()
-double right = Double.parseDouble(str)
-str = System.console().readLine()
-double down = Double.parseDouble(str)
 
-//2. Create points
-Point pointUpLeft = new Point()
-pointUpLeft.x = left
-pointUpLeft.y = up
-Point pointDownRight = new Point()
-pointDownRight.x = right
-pointDownRight.y = down
+print str;
 
-//3. Create the Rectangle
-Rectangle myRectangle = new Rectangle()
-myRectangle.upLeft = pointUpLeft
-myRectangle.downRight = pointDownRight
+int length = str.length() //14
 
-//4. Calculate the perimeter and area
-double height = myRectangle.upLeft.y - myRectangle.downRight.y 
-double width = myRectangle.downRight.x - myRectangle.upLeft.x
+for(int i = 0; i < length; i++){
+	print str.charAt(length -i -1);
+}
+println ""
 
-double perimeter = 2 * height + 2 * width
-double area = height * width
+print str;
+for (int i = length -1; i >=0; i--){
+	print str.charAt(i);
+}
 
-//5. print results
-println("The perimeter of this rectangle is " + perimeter)
-println("The area of this rectangle is " + area)
+println ""
