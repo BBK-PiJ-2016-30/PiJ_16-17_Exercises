@@ -24,10 +24,7 @@ def splitPoints(userString,option){
 	}
 }
 
-
-
 //2. create points
-
 print("Please enter Point 1 in the format - x,y : ");
 str = System.console().readLine()
 Point newP1 = new Point()
