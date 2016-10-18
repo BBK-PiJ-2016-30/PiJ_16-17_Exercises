@@ -59,7 +59,6 @@ newP4.y = splitPoints(str,2,",")
 print("Please enter the point you'd like to check the location of in the format - x,y : ");
 str = System.console().readLine()
 Point newP5 = new Point()
-print str
 newP5.x = splitPoints(str,1,",")
 newP5.y = splitPoints(str,2,",")
 
@@ -71,7 +70,6 @@ rectangleCheck1.bottomRight = newP2
 Rectangle rectangleCheck2 = new Rectangle()
 rectangleCheck2.topLeft = newP3
 rectangleCheck2.bottomRight = newP4
-
 
 //4. check if point is in rectangles
 boolean inRec1 = false
