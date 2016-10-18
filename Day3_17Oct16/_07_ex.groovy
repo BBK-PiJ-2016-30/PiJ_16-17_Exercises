@@ -32,25 +32,36 @@ def splitPoints(userString,option,delimiter){
 }
 
 //2. create points
-println("You will enter the points for the Rectangle first, \nfollowed by the point to be checked.")
-print("Please enter the TOP LEFT point of the rectangle in the format - x,y : ");
+print("Please enter the TOP LEFT point of the first rectangle in the format - x,y : ");
 str = System.console().readLine()
 Point newP1 = new Point()
 newP1.x = splitPoints(str,1,",")
 newP1.y = splitPoints(str,2,",")
 
-print("Please enter the BOTTOM RIGHT point of the rectangle in the format - x,y : ");
+print("Please enter the BOTTOM RIGHT point of the first rectangle in the format - x,y : ");
 str = System.console().readLine()
 Point newP2 = new Point()
 newP2.x = splitPoints(str,1,",")
 newP2.y = splitPoints(str,2,",")
 
-print("Please enter the point you'd like to check the location of in the format - x,y : ");
+print("Please enter the TOP LEFT point of the second rectangle in the format - x,y : ");
 str = System.console().readLine()
 Point newP3 = new Point()
-print str
 newP3.x = splitPoints(str,1,",")
 newP3.y = splitPoints(str,2,",")
+
+print("Please enter the BOTTOM RIGHT point of the second rectangle in the format - x,y : ");
+str = System.console().readLine()
+Point newP4 = new Point()
+newP4.x = splitPoints(str,1,",")
+newP4.y = splitPoints(str,2,",")
+
+print("Please enter the point you'd like to check the location of in the format - x,y : ");
+str = System.console().readLine()
+Point newP5 = new Point()
+print str
+newP5.x = splitPoints(str,1,",")
+newP5.y = splitPoints(str,2,",")
 
 //3. create rectangles
 Rectangle rectangleCheck1 = new Rectangle()
@@ -58,16 +69,31 @@ rectangleCheck1.topLeft = newP1
 rectangleCheck1.bottomRight = newP2
 
 Rectangle rectangleCheck2 = new Rectangle()
-rectangleCheck2.topLeft = newP1
-rectangleCheck2.bottomRight = newP2
+rectangleCheck2.topLeft = newP3
+rectangleCheck2.bottomRight = newP4
 
 
-//4. check if point is in rectangle
-if(newP3.x > rectangleCheck.topLeft.x & newP3.x < rectangleCheck.bottomRight.x &
-	newP3.y < rectangleCheck.topLeft.y & newP3.y > rectangleCheck.bottomRight.y){
-	println("Point is in the rectangle.")
-}else{
-	println("Point isn't in the rectangle.")
+//4. check if point is in rectangles
+boolean inRec1 = false
+boolean inRec2 = false
+if(newP5.x > rectangleCheck1.topLeft.x & newP5.x < rectangleCheck1.bottomRight.x &
+	newP5.y < rectangleCheck1.topLeft.y & newP5.y > rectangleCheck1.bottomRight.y){
+	inRec1 = true
 }
+if(newP5.x > rectangleCheck2.topLeft.x & newP5.x < rectangleCheck2.bottomRight.x &
+	newP5.y < rectangleCheck2.topLeft.y & newP5.y > rectangleCheck2.bottomRight.y){
+	inRec2 = true
+}
+
+if(inRec1 & inRec1){
+	println("In both rectangles.")
+}else if(inRec1){
+	println("In rectangle 1 only.")
+}else if(inRec2){
+	println("In rectangle 2 only.")
+}else{
+	println("Not in any rectangle.")
+}
+
 
 
