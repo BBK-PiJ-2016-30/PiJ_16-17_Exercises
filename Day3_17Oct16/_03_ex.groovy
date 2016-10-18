@@ -1,30 +1,48 @@
-//distance point to point
-//input: reads X and Y coordinates of three points
-//output: the closest of the 3
+//command-line calculator
+//input: reads test representing a mathematical operation(one of the four basic ones, 2 operands
+//output: the result
 
-//some variable declarations
 String str = ""
-def pointList = ["+","-","*", "/"]
+double num1 = 0.0
+double num2 = 0.0
+def operatorList = ["+","-","*", "/"]
 int option = 0
 int operatorLoc = 0
 int strLen = 0
 
-//1. declare class
-class Point{
-	double x;
-	double y;
+//1. enter calculation and store in string
+print("Please enter calculation: ")
+str = System.console().readLine()
+
+//2. find the operator used and index of it
+
+for(item in operatorList){
+	if(str.contains(item)){
+		option = operatorList.indexOf(item)+1
+		operatorLoc = str.indexOf(item)
+		strLen = str.length()
+		num1 = Double.parseDouble(str[0..operatorLoc-1])
+		num2 = Double.parseDouble(str[operatorLoc+1..str.length()-1])
+	}
 }
 
-//2. create points
-for(i=0; i<3; i++){
-	print("Please enter Point " + i + " in the format - x,y : ");
-	str = System.console().readLine()
-	def system = new Point()
-	systems.inetAddress = params."point+${i}"	
-
+switch(option){
+	case 1: 
+		print(num1 + num2)
+		break;
+	case 2: 
+		print(num1 - num2)
+		break;
+	case 3: 
+		print(num1 * num2)
+		break;
+	case 4: 
+		print(num1 / num2)
+		break;
+	default: 
+		print("Crash, ahhhhh!")
+		break;
 }
 
-println point1
-println point2
-println point3
+
 
