@@ -12,9 +12,10 @@ class Point{
 	double y;
 }
 
-def splitPoints(userString,option){
+//declare some user functions
+def splitPoints(userString,option,delimiter){
 	int operatorLoc = 0
-	operatorLoc = userString.indexOf(",")
+	operatorLoc = userString.indexOf(delimiter)
 	
 	if(option == 1){
 		return Double.parseDouble(userString[0..operatorLoc-1])
@@ -28,20 +29,20 @@ def splitPoints(userString,option){
 print("Please enter Point 1 in the format - x,y : ");
 str = System.console().readLine()
 Point newP1 = new Point()
-newP1.x = splitPoints(str,1)
-newP1.y = splitPoints(str,2)
+newP1.x = splitPoints(str,1,",")
+newP1.y = splitPoints(str,2,",")
 
 print("Please enter Point 2 in the format - x,y : ");
 str = System.console().readLine()
 Point newP2 = new Point()
-newP2.x = splitPoints(str,1)
-newP2.y = splitPoints(str,2)
+newP2.x = splitPoints(str,1,",")
+newP2.y = splitPoints(str,2,",")
 
 print("Please enter Point 3 in the format - x,y : ");
 str = System.console().readLine()
 Point newP3 = new Point()
-newP3.x = splitPoints(str,1)
-newP3.y = splitPoints(str,2)
+newP3.x = splitPoints(str,1,",")
+newP3.y = splitPoints(str,2,",")
 
 
 //3. Calculate distance
