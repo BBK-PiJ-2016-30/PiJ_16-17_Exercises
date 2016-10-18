@@ -62,6 +62,7 @@ pointList.push(dist3)
 
 
 //4.print closest pair
+
 int minDistIndex = pointList.indexOf(pointList.min())
 
 switch(minDistIndex+1){
