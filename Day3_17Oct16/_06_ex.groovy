@@ -48,7 +48,6 @@ newP2.y = splitPoints(str,2,",")
 print("Please enter the point you'd like to check the location of in the format - x,y : ");
 str = System.console().readLine()
 Point newP3 = new Point()
-print str
 newP3.x = splitPoints(str,1,",")
 newP3.y = splitPoints(str,2,",")
 
