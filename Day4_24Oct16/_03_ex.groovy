@@ -1,12 +1,20 @@
+//Binary and decimal
+//program to define a number of methods
+
 int power (int b, int e){
+	// take int b and int e
+	//returns b to the power of e
 	return b**e
 }
 
 int power2(int e){
+	//takes int e
+	//return 2 to the power of e
 	return power(2, e)
 }
 
 int binary2decimal(String str){
+	//takes string outputs int
 	int count = str.length()-1
 	int decSum = 0
 	for(i= 0; i < str.length(); i++){
@@ -19,6 +27,7 @@ int binary2decimal(String str){
 }
 
 String decimal2binary(int b){
+	//takes int outputs binary string
 	String binOut = ""
 		
 	while(b >0){
