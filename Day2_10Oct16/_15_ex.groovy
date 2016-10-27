@@ -1,6 +1,8 @@
-///guessMyNumber
+//guessMyNumber
+//input: user guesses at number
+//output:higher or lower and if the user guesses correctly how many guesses it took
 
-int numberToGuess = Math.abs(1000 * Math.random())
+int numberToGuess = Math.abs(100 * Math.random())
 int userAnswer = 0
 int guess = 0
 
