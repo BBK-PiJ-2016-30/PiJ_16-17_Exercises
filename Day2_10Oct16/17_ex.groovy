@@ -1,4 +1,8 @@
-///allPrimesUpto1000
+//Optimus Prime (**)
+//reads interger from user
+//output: closest prime
+//if there are two prime numbers at the same distance, it should output both
+//e.g. user enters 5116, output should be 5113 and 5119
 
 def checkIfPrime(primeCheck){
 	int i = 2
