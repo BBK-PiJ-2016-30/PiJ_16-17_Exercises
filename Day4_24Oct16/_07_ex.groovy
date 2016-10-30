@@ -1,6 +1,6 @@
 //A bit more practice with doubles
 
-class Mortage {
+class Mortgage {
 	double amtBorrow;
 	double years;
 	double intRate;
@@ -22,34 +22,53 @@ class Mortage {
 
 	double totalMortgage(){
 	//returns the total amount of the mortgage
+		return amtBorrow*(1+(intRate/100))
 	
 	}
 
 	double paymentYearly(){
-	//retruns total to be paid each year
+	//returns total to be paid each year
+		return totalMortgage()/years
 	
 	}
 
-	double payInt(){
+	double yearsToPayInt(){
 	//years until interest is paid and only capital remains
+		double interest = totalMortgage() - amtBorrow
+		return interest/paymentYearly()
+		
 	}
 }	
 
 void requestMortgage(Mortgage x){
-	print "Please the amount borrowed for your mortgage: "
+	print "Please enter your mortgage amount: "
 	String str = System.console().readLine()
-	x.setBorrow = Double.parseDouble(str)
+	x.setBorrow(Double.parseDouble(str))
 }
 
 void requestYears(Mortgage x){
 	print "Please enter the number of years to pay back your mortgage: "
 	String str = System.console().readLine()
-	x.setYears = Double.parseDouble(str)
+	x.setYears(Double.parseDouble(str))
 }
 
 void requestIntRate(Mortgage x){
 	print "Please enter the interest rate on your mortgage: "
 	String str = System.console().readLine()
-	x.setIntRate = Double.parseDouble(str)
+	x.setIntRate(Double.parseDouble(str))
 }
+
+boolean running = true
+Mortgage mortCheck = new Mortgage()
+
+requestMortgage(mortCheck)
+requestYears(mortCheck)
+requestIntRate(mortCheck)
+
+println("------------");
+println("Mortgage details are:");
+println("------------");
+println("The total amount to be paid for a mortgage of " + mortCheck.amtBorrow + " is " + mortCheck.totalMortgage().round(2));
+println("The amount to be paid every year is " + mortCheck.paymentYearly().round(0));
+println("The interest wll be paid after " + mortCheck.yearsToPayInt().round(2) + " years");
 
