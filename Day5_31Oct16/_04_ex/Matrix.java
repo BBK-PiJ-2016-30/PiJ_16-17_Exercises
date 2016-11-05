@@ -25,14 +25,26 @@ public class Matrix{
 	public boolean checkIndices(int row, int col){
 		int sizeRow = matrixField.length;
 		int sizeCol = matrixField[0].length;
-		
+
 		if(row >= 0 & row < sizeRow & col >= 0 & col < sizeCol){
 			return(true);
 		}
 		return(false);
 	}
+	
+	public boolean checkStrIndices(int row, int col){
+		int sizeRow = matrixField.length;
+		int sizeCol = matrixField[0].length;
+
+		if(row > 0 & row <= sizeRow & col > 0 & col <= sizeCol){
+			return(true);
+		}
+		return(false);
+	}
+
 
 	public void setElement (int row, int col, int value){
+		
 		if(checkIndices(row,col)){
 			matrixField[row][col] = value;
 		}
@@ -40,10 +52,11 @@ public class Matrix{
 	}
 
 	public void setRow(int row, String numList){
-		int colSize = numCount(numList)-1;
-		if(checkIndices(row,colSize) & colSize == matrixField[0].length){
+		int colSize = numCount(numList);
+
+		if(checkStrIndices(row,colSize) & (colSize) == matrixField[0].length){
 			int [] numArr = strToNumArr(numList);
-			for(int i=0; i<colSize+1;i++ ){
+			for(int i=0; i<colSize;i++ ){
 				matrixField[row][i] = numArr[i];
 			}
 		}
@@ -52,7 +65,8 @@ public class Matrix{
 	
 	public void setColumn(int col, String numList){
 		int rowSize = numCount(numList);
-		if(checkIndices(rowSize,col) & rowSize == matrixField.length){
+
+		if(checkStrIndices(rowSize,col) & (rowSize) == matrixField.length){
 			int [] numArr = strToNumArr(numList);
 			for(int i=0; i<rowSize;i++ ){
 				matrixField[i][col] = numArr[i];
@@ -64,6 +78,7 @@ public class Matrix{
 	
 	public int numCount(String str){
 		int count = 0;
+		
 		for(int i=0; i<str.length();i++){
 			if(str.charAt(i) == ','){
 				count ++;
@@ -102,9 +117,13 @@ public class Matrix{
 		for(int i=0; i<sizeRow;i++ ){
 			for(int j=0; j<sizeCol; j++){
 				if(j != (sizeCol-1)){
-					str = matrixField[i][j] + ",";
+					str = str + matrixField[i][j] + ",";
 				}else{
-					str = matrixField[i][j] + ";";
+					if(i!=sizeRow-1){
+						str = str + matrixField[i][j] + ";";
+					}else{
+						str = str + matrixField[i][j];
+					}
 				}
 			}
 		}
