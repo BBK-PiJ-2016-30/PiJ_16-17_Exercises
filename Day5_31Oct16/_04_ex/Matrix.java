@@ -40,10 +40,10 @@ public class Matrix{
 	}
 
 	public void setRow(int row, String numList){
-		int colSize = numCount(numList);
-		if(checkIndices(row,colSize)){
+		int colSize = numCount(numList)-1;
+		if(checkIndices(row,colSize) & colSize == matrixField[0].length){
 			int [] numArr = strToNumArr(numList);
-			for(int i=0; i<colSize;i++ ){
+			for(int i=0; i<colSize+1;i++ ){
 				matrixField[row][i] = numArr[i];
 			}
 		}
@@ -52,7 +52,7 @@ public class Matrix{
 	
 	public void setColumn(int col, String numList){
 		int rowSize = numCount(numList);
-		if(checkIndices(rowSize,col)){
+		if(checkIndices(rowSize,col) & rowSize == matrixField.length){
 			int [] numArr = strToNumArr(numList);
 			for(int i=0; i<rowSize;i++ ){
 				matrixField[i][col] = numArr[i];
@@ -65,23 +65,33 @@ public class Matrix{
 	public int numCount(String str){
 		int count = 0;
 		for(int i=0; i<str.length();i++){
-			if(str.charAt(i) != ','){
+			if(str.charAt(i) == ','){
 				count ++;
 			}
 		}
-		return(count);
+		return(count+1);
 	}
 	
 	public int [] strToNumArr(String str){
 		int [] numArr;
 		int size = numCount(str);
 		numArr	= new int[size];
+		
+		int count = 0;
+		String tmp = "";
 
 		for(int i=0; i<str.length(); i++){
-			if(str.charAt(i) != ','){
-				numArr[i] = Integer.parseInt(""+str.charAt(i));
+			if(str.charAt(i) == ','){
+				numArr[count] = Integer.parseInt(tmp);
+				tmp = "";
+				count ++;
+			}else{
+				tmp = tmp + str.charAt(i);
 			}
 		}
+		
+		numArr[count] = Integer.parseInt(tmp);
+		
 		return(numArr);
 	}
 

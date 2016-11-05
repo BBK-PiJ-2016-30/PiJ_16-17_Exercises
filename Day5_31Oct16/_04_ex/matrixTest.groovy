@@ -18,9 +18,9 @@ matTest.prettyPrint();
 
 
 println("Test setRow method");
-str = "9,8,7"
+str = "9,8,7,10"
 matTest.setRow(1,str);
-println("Row two populated with 9, 8, 7: ")
+println("Row two populated with 9, 8, 7,10: ")
 matTest.prettyPrint();
 
 println("Test setCol method");
