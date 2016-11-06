@@ -1,8 +1,8 @@
-//exercise 5 one-liners for matrices
+//exercise 6 Symmetry looks pretty
 
 public class Matrix{
 	
-	int [][] matrixField;	
+	int [][] matrixField;
 
 	Matrix(int row, int col){
 		matrixField = new int[row][col];
@@ -177,5 +177,17 @@ public class Matrix{
 			}
 		}
 		return;
+	}
+	
+	public boolean isSymmetrical(){
+		MatrixChecker matChckTest = new MatrixChecker();
+		
+		return(matChckTest.isSymmetrical(matrixField));
+	}
+	
+	public boolean isTriangular(){
+		MatrixChecker matChckTest = new MatrixChecker();
+		
+		return(matChckTest.isTriangular(matrixField));
 	}
 }
