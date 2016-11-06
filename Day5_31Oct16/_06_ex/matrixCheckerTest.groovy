@@ -8,8 +8,8 @@ matTest.prettyPrint();
 println("Is matrix symmetrical?")
 println(matTest.isSymmetrical())
 
-matTest.setElement(2,2,8)
-println("Set element 2,2 to 8")
+matTest.setElement(1,2,8)
+println("Set element 2,3 to 8")
 matTest.prettyPrint();
 println("Is matrix still symmetrical?")
 println(matTest.isSymmetrical())
@@ -21,8 +21,8 @@ matTest.prettyPrint();
 println("Is matrix triangular?")
 println(matTest.isTriangular())
 
-matTest.setElement(2,1,8)
-matTest.setElement(4,1,8)
+matTest.setElement(1,0,8)
+matTest.setElement(3,0,8)
 println("Set element 2,1 to 8 & 4,1 to 8")
 matTest.prettyPrint();
 println("Is matrix still triangular?")
