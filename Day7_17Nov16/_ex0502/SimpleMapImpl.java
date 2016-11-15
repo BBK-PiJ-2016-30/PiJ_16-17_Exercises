@@ -1,4 +1,4 @@
-public class SimpleMapImpl{
+public class SimpleMapImpl implements SimpleMap{
 	
 	
 	private String [] hashMap = new String[1000];
