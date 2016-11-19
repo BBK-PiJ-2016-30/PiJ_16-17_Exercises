@@ -19,7 +19,7 @@ public class MatrixChecker{
 		
 		for(int i=0; i<rowSize; i++){
 			for(int j=0; j<colSize; j++){
-				System.out.println("Coordinates row " + i + " col " + j + " Values " + matChk[i][j] + " & " + matChk[j][i]);
+				//System.out.println("Coordinates row " + i + " col " + j + " Values " + matChk[i][j] + " & " + matChk[j][i]);
 				if(matChk[i][j] != matChk[j][i]){
 					return(false);
 				}

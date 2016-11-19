@@ -21,7 +21,7 @@ for(i=0;i<2;i++){
 		print("What would you like to do: +, -, *, / : ")
 		str = System.console().readLine()
 		option = operatorList.indexOf(str) + 1
-		println option
+		//println option
 		switch(option){
 			case 1: 
 				print(num1 + num2)

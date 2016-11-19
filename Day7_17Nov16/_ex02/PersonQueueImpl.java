@@ -38,10 +38,6 @@ public class PersonQueueImpl implements PersonQueue{
 			return(toBeServed);
 		}
 	}
-	
-	public int getQLen(){
-		return(this.perQueue);
-	}
-	
+
 
 }

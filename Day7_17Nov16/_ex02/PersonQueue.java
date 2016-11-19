@@ -8,12 +8,5 @@ public interface PersonQueue{
 	*Removes a person from the queue
 	*/
 	Person retrieve();
-	
-	/**
-	*returns length of queue
-	*/
-	int getQLen();
-	
-	
 
 }

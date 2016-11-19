@@ -7,15 +7,12 @@ public class Launcher{
 			newSM.addPerson(newPer);
 		}
 		
-		System.out.println("Queue has " + newSM.getQLenSM() + " people.\n");
-		
 		Person current = newSM.servePerson();
 		do{
 			System.out.println("Now serving " + current.getName());
 			current = newSM.servePerson();
 		}while(current != null);
 
-		System.out.println("\nQueue has " + newSM.getQLenSM() + " people.");
 
 	}
 }

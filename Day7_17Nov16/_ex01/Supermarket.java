@@ -1,6 +1,6 @@
 public class Supermarket {
 	
-	public PersonQueue newQueue = new SupermarketQueue();
+	private PersonQueue newQueue = new SupermarketQueue();
 	
 	public void addPerson(Person person){
 		newQueue.insert(person);
@@ -14,11 +14,6 @@ public class Supermarket {
 		}
 		//System.out.println("Nobody left to serve.");
 		return(null);
-	}
-	
-	public int getQLenSM(){
-		int qLen = this.newQueue.getQLen();
-		return(qLen);
 	}
 
 }
