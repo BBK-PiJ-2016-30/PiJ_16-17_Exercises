@@ -3,7 +3,7 @@ class Hospital{
 	public static void main(String [] args){
 		
 		HospitalManager newHosp = new HospitalManager();
-		Patient newPat = null;
+
 		
 		//1
 		for(int i=0; i<10; i++){
@@ -22,13 +22,12 @@ class Hospital{
 					System.out.println("This should never run");
 					break;
 			}
-			newPat = new Patient(("Pat_"+i), (20+i), str);
+			Patient newPat = new Patient(("Pat_"+i), (20+i), str);
 			newHosp.addPatient(newPat);
 		}
 		
 		//2
-		newHosp.printPatientListForwards();
-		newHosp.printPatientListbackwards();
+		newHosp.printPatientList();
 		System.out.println("Patients in queue: " + newHosp.getQueue());
 		
 		//3 delete a few patients
@@ -36,17 +35,17 @@ class Hospital{
 		newHosp.deletePatient("Pat_7");
 		
 		//4
-		newHosp.printPatientListForwards();
-		newHosp.printPatientListbackwards();
+		newHosp.printPatientList();
 		System.out.println("Patients in queue: " + newHosp.getQueue());
 		
 		//5 delete patient not in list
+		Patient newPat = new Patient("Pat_12", 27, "Broken Arm");
+		newHosp.addPatient(newPat);
 		newHosp.deletePatient("Pat_11");
 		
 		//6
-		newHosp.printPatientListForwards();
-		newHosp.printPatientListbackwards();
+		newHosp.printPatientList();
 		System.out.println("Patients in queue: " + newHosp.getQueue());
-
+		
 	}
 }

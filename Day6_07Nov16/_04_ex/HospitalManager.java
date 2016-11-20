@@ -7,6 +7,7 @@ public class HospitalManager {
 	// this is a member method of class HospitalManager
 	public void addPatient(Patient newPatient) {
 		Patient current = this.firstPatient;
+		int count = 0;
 		
 		if (firstPatient == null) {
 			firstPatient = newPatient;
@@ -14,14 +15,16 @@ public class HospitalManager {
 			return;
 		}
 		
-		while (current.getNextPatient() != null) {
+		count ++;
+		while (count != patQueue) {
 			// this means we are not yet at the end of the list
 			current = current.getNextPatient();
+			count ++;
 		}
 		
 		// at this point, current points to the last patient
 		current.setNextPatient(newPatient);
-		newPatient.setPrevPatient(current);
+		current.getNextPatient().setNextPatient(firstPatient);
 		this.patQueue ++;
 		
 	}
@@ -29,6 +32,9 @@ public class HospitalManager {
 	// this is a member method of class HospitalManager
 	// returns true if the patient was found and removed, false otherwise
 	public boolean deletePatient(String name) {
+		
+		int count = 0;
+		
 		if (firstPatient == null) {
 			// list is empty, nothing to remove
 			return false;
@@ -40,28 +46,30 @@ public class HospitalManager {
 				//one person list
 				firstPatient = null;
 			}else{
-				firstPatient.getNextPatient().setPrevPatient(null);
 				firstPatient = firstPatient.getNextPatient();
 			}
 			this.patQueue --;
 			return true;
 		}
-		
+		count ++;
 		Patient current = firstPatient;
-		while (current.getNextPatient() != null) {
+		while (count != patQueue) {
 			if (current.getNextPatient().getName().equals(name)) {
 				// We found it! It is the next one!
 				// Now link this patient to the one after the next
+				
 				current.setNextPatient(current.getNextPatient().getNextPatient());
-				//set prev patient
-				current.getNextPatient().getNextPatient().setPrevPatient(current);
+				
 				this.patQueue --;
 				return true;
 			}
 			current = current.getNextPatient();
+			count ++;
+
 		}
 		System.out.println(name + " not in list");
 		return false;
+
 	}
 	
 	public Patient getFirstPatient(){
@@ -72,44 +80,22 @@ public class HospitalManager {
 		return(this.patQueue);
 	}
 	
-	public void printPatientListForwards (){
-			System.out.println("List printed Forwards");
+	public void printPatientList (){
+			int count = 0;
+			System.out.println("Patient list");
 			if(firstPatient==null){
 				System.out.println("No one in the hosipital.");
 			}
 			
 			Patient current = firstPatient;
 			do{
-				System.out.println("Patient: ");
+				System.out.print("Patient: ");
 				System.out.print(current.getName() + " - ");
 				System.out.print(current.getAge() + " - ");
 				System.out.println(current.getIllness());
 				current = current.getNextPatient();
-			}while(current != null);
-	
-	}
-	
-	public void printPatientListbackwards (){
-			System.out.println("List printed Backwards");
-			if(firstPatient==null){
-				System.out.println("No one in the hosipital.");
-			}
-			
-			Patient current = firstPatient;
-			
-			while (current.getNextPatient() != null) {
-				current = current.getNextPatient();
-			}
-			
-			Patient lastPat = current;
-			
-			do{
-				System.out.println("Patient: ");
-				System.out.print(current.getName() + " - ");
-				System.out.print(current.getAge() + " - ");
-				System.out.println(current.getIllness());
-				current = current.getPrevPatient();
-			}while(current != null);
+				count ++;
+			}while(count != patQueue);
 	
 	}
 
