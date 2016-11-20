@@ -2,7 +2,6 @@ public class Launcher{
 	public static void main(String [] args){
 		Supermarket newSM = new Supermarket();
 		
-		//enter endless loop with lecturers implementation
 		
 		for(int i=0; i<10; i++){
 			Person newPer = new Person(("Person"+i),(20+i));
