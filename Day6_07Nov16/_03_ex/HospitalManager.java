@@ -80,7 +80,7 @@ public class HospitalManager {
 			
 			Patient current = firstPatient;
 			do{
-				System.out.println("Patient: ");
+				System.out.print("Patient: ");
 				System.out.print(current.getName() + " - ");
 				System.out.print(current.getAge() + " - ");
 				System.out.println(current.getIllness());
@@ -104,7 +104,7 @@ public class HospitalManager {
 			Patient lastPat = current;
 			
 			do{
-				System.out.println("Patient: ");
+				System.out.print("Patient: ");
 				System.out.print(current.getName() + " - ");
 				System.out.print(current.getAge() + " - ");
 				System.out.println(current.getIllness());

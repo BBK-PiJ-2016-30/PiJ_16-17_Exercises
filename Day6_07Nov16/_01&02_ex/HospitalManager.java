@@ -60,7 +60,7 @@ public class HospitalManager {
 	
 	public void getPatient (Patient current){
 		
-			System.out.println("Patient: ");
+			System.out.print("Patient: ");
 			System.out.print(current.getName() + " ");
 			System.out.print(current.getAge() + " ");
 			System.out.println(current.getIllness());
