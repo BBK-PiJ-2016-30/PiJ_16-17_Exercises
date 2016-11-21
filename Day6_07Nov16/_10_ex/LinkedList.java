@@ -10,32 +10,25 @@ public class LinkedList{
 	*insert point in list
 	*/
 	public void insertPoint(ListPoint point){
+		//System.out.println(point.getPoint());
 		if (firstPoint == null) {
 			firstPoint = point;
 			this.ListLen ++;
 			return;
 		}
 		
-		//
-		// ListPoint curPoint = null;
-		// ListPoint curPoint1 = firstPoint.getNextPoint();
 		ListPoint curPoint = firstPoint;
 		if(firstPoint.getPoint() <= point.getPoint()){
-			// while(point.getPoint()>curPoint1.getPoint()){
-				// curPoint = curPoint1;
-				// curPoint1 = curPoint1.getNextPoint();
-			// }
-			// curPoint.setNextPoint(point);
-			// point.setNextPoint(curPoint1);
-			// this.ListLen ++;
-			// return;
+
 			int count = 0;
 			while(curPoint.getNextPoint()!=null){
-				System.out.println(count++);
+				//System.out.println(count++);
 				if(point.getPoint() >= curPoint.getPoint() &
 				point.getPoint() <= curPoint.getNextPoint().getPoint()){
-					curPoint.setNextPoint(point);
+					//System.out.println("in if");
+					//not right or not working
 					point.setNextPoint(curPoint.getNextPoint());
+					curPoint.setNextPoint(point);
 					this.ListLen ++;
 					return;
 				}
@@ -68,7 +61,7 @@ public class LinkedList{
 			if(curPoint.getNextPoint()!=null){
 				System.out.print(curPoint.getPoint() + ",");
 			}else{
-				System.out.print(curPoint.getPoint());
+				System.out.println(curPoint.getPoint());
 			}
 			
 			curPoint = curPoint.getNextPoint();

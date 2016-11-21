@@ -6,6 +6,8 @@ public class Launcher{
 		for(int i = 0; i <=15; i ++){
 			newPoint = new ListPoint(1 + (int)(Math.random()*10));
 			newList.insertPoint(newPoint);
+			//System.out.println("List: " + i);
+			//newList.printList();
 		}
 		
 		newList.printList();
