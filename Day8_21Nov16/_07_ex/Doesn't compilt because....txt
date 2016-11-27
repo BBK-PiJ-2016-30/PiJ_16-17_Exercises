@@ -1,0 +1,1 @@
+StringExtend cannot inherit from final String
