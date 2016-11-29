@@ -1,19 +1,12 @@
-/**
- * Implementation of interface stack using a 
- * dynamic structure as support. 
- */
-public class GenericStackImpl<T> implements GenericStack<T> {
-    /**
-     * The head of the stack: the visible node
-     */
-    private GenericStack<T> head;
 
-    public GenericStackImpl<T>() {
-	  this.head = null;
-    }
+public class GenericStackImpl<T extends Number> implements GenericStack<T> {
+    /**
+     * The head of the stack
+     */
+    private GenericStackNode<T> head = null;
 
     public void push(T value) {
-	  StringStackNode newNode = new StringStackNode(newText);
+	  GenericStackNode<T> newNode = new GenericStackNode<T>(value);
 	  if (head != null) {
 		newNode.setNext(head);
 	  }
@@ -24,37 +17,25 @@ public class GenericStackImpl<T> implements GenericStack<T> {
 	  if (head == null) {
 		return null;
 	  }
-	  T result = head.getText();
+	  T result = head.getValue();
 	  head = head.getNext();
 	  return result;
     }
 
-    public String peek() {
+    public T peek() {
 	  if (head == null) {
 		return null;
 	  } else {
-		return head.getText();
+		return head.getValue();
 	  }
     }
 
     public boolean isEmpty() {
-	  if (getSize() == 0) {
+	  if (head == null) {
 		return true;
 	  } else {
 		return false;
 	  }
     }
 
-    /**
-     * Returns the number of string in the stack
-     */
-    public int getSize() {
-	  int result = 0;
-	  StringStackNode currentNode = head;
-	  while (currentNode != null) {
-		currentNode = currentNode.getNext();
-		result++;
-	  }
-	  return result;
-    }
 }

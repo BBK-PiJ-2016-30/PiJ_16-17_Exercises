@@ -1,7 +1,7 @@
 /**
  * Generic String Stack
  */
-public interface GenericStack<T> {
+public interface GenericStack<T extends Number> {
     /**
      * Pushes a new value onto the stack
      */
