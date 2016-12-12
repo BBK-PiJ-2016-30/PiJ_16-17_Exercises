@@ -68,7 +68,49 @@ public class IntegerTreeNode {
 	}
 	
 	public String toString(){
-		if()
+		
+		String treeOut = "";
+		treeOut = treeOut + "[" + this.value;
+	
+
+		if(left == null){
+			treeOut = treeOut + " L[]";
+		}else{
+			treeOut = treeOut + " L" + left.toString();
+		}
+		
+		if(right == null){
+			treeOut = treeOut + " R[]";
+		}else{
+			treeOut = treeOut + " R" + right.toString();
+		}
+		
+		return(treeOut +"]");
+		
+
+	}
+	
+	public String toStringSimple(){
+		
+		String treeOut = "";
+		treeOut = treeOut + "[" + this.value;
+	
+
+		if(left == null){
+			treeOut = treeOut + "";
+		}else{
+			treeOut = treeOut + " " + left.toStringSimple();
+		}
+		
+		if(right == null){
+			treeOut = treeOut + "";
+		}else{
+			treeOut = treeOut + " " + right.toStringSimple();
+		}
+		
+		return(treeOut +"]");
+		
+
 	}
 	
 }
