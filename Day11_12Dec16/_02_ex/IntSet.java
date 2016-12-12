@@ -14,7 +14,7 @@ public interface IntSet {
 	public boolean contains(int n);
 	
 	/**
-	*returns same as contains but prints elements checked on screen
+	*returns same as contains but prints element checked on screen
 	*/
 	public boolean containsVerbose(int n);
 	
