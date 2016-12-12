@@ -14,6 +14,7 @@ public class ITN_Test{
 		testTree.add(8);
 		testTree.add(11);
 		testTree.add(12);
+		testTree.add(15);
 
 		System.out.println("Contains 5 - " + testTree.contains(5));
 		System.out.println("Contains 20 - " + testTree.contains(20));
@@ -25,6 +26,8 @@ public class ITN_Test{
 		System.out.println(testTree.toString());
 		
 		System.out.println(testTree.toStringSimple());
+		
+		System.out.println(testTree.depth());
 		
 	
 	}

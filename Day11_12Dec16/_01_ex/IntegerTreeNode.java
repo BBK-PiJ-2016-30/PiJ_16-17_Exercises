@@ -113,4 +113,29 @@ public class IntegerTreeNode {
 
 	}
 	
+	public int depth(){
+		
+		int leftCount = 0;
+		int rightCount = 0;
+		
+		if(left == null){
+			leftCount = leftCount + 0;
+		}else{
+			leftCount = 1 + left.depth();
+		}
+		
+		if(right == null){
+			rightCount = rightCount + 0;
+		}else{
+			rightCount = 1 + right.depth();
+		}
+		
+		if(leftCount> rightCount){
+			return leftCount;
+		}else{
+			return rightCount;
+		}
+		
+	}
+	
 }
