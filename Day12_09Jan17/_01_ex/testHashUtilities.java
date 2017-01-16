@@ -2,7 +2,7 @@
  * Generic test class structure
  */
  
-import org.junit.*;
+import org.junit.*; //or should we use org.junit.Test;
 import static org.junit.Assert.*;
 import static java.lang.Math.random;
 
